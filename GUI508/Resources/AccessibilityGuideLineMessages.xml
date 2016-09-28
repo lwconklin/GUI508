@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Messages>
+  <Message id="IMG0001">
+    <Description xml:space="preserve">
+     • Every image in a Web page should include an alt text attribute.
+    </Description>
+    <Description xml:space="preserve">
+      The alt text attribute is used by assistive technologies such as screen readers to announce the content of the image to a user who cannot see the image.
+    </Description>
+    <Description xml:space="preserve">
+      If an image is used only as a design element and has no useful information to communicate, you must include an alt attribute but set it to an empty string.
+    </Description>
+    <Description xml:space="preserve">
+      If the alt attribute is not beening rendered use GenerateEmptyAlternateText property.
+    </Description>
+      <Description xml:space="preserve">
+      The alternate text should not just repeat the content of the file-name attribute.
+    </Description>
+    <Description xml:space="preserve">
+      The purpose of the alt attribute is to communicate to someone who is blind the same information that the image communicates to someone who is sighted.
+    
+    </Description>
+  </Message>
+  
+  <Message id="IMG0004">
+    <Description xml:space="preserve">
+     • Complex Server-side images like image maps are inherently inaccessible to keyboard users and to screen reader users; they should be avoided.
+     </Description>
+    <Description xml:space="preserve">
+       The same functionality can often be provided by client-side.
+       
+    </Description>
+  </Message>
+  <Message id="LIT0001">
+   <Description xml:space="preserve">
+    • Reserves a location on the Web page to display static text. Make sure no html tags are being outputted thru this control. If control is being used to output html make sure html is correct for accessibility.
+    
+   </Description>
+  </Message>
+  <Message id="RAD0001">
+    <Description xml:space="preserve">
+     • To render semantically correct markup using a radiobutton, set the RepeatLayout property to UnorderedList or OrderedList.
+    </Description>
+    <Description xml:space="preserve">
+       The following formatting limitations apply if you use an ordered list or unordered list:
+    </Description>
+    <Description xml:space="preserve">
+       The layout direction must be vertical.
+    </Description>
+    <Description xml:space="preserve">
+       You cannot specify multiple columns.
+    </Description>
+    <Description xml:space="preserve">
+       Headers, footers, and separators are not supported.
+    </Description>
+    <Description xml:space="preserve">
+       All radio button groups are marked using fieldset and legend elements.
+       
+    </Description>
+  </Message>
+  <Message id="TAB001">
+    <Description xml:space="preserve">
+     • On ASPX page no ASP.NET control(s) have been found using TabIndex. Make sure page works correctly for keyboard only users.
+    </Description>
+    <Description xml:space="preserve">
+       Input forms should be designed so that the default tab order provides a logical path through the input fields and hyperlinks.
+       
+    </Description>
+  </Message>
+  <Message id="AUT001">
+    <Description xml:space="preserve">
+     • If an ASP.NET Web Forms page implements this behavior by using the AutoPostBack property, the entire page might be refreshed.
+    </Description>
+    <Description xml:space="preserve">
+       In that case, a person who is using a graphical browser might see the screen flicker as it adds an additional section.
+    </Description>
+    <Description xml:space="preserve">
+       However, a person who uses a screen reader might have to listen to the entire form again.
+    </Description>
+    <Description xml:space="preserve">
+        In either case, the user experience will be better if the label or description for the drop-down list makes clear what will happen when it is clicked.
+     </Description>
+     <Description xml:space="preserve">
+        You can make page updates like these less intrusive by using client script or Ajax so that the browser updates only a portion of the page.
+     </Description>
+     <Description xml:space="preserve">
+        However, the page should still make clear what behavior the user can expect.
+        
+        </Description>
+  </Message>
+  <Message id="PAG003">
+    <Description xml:space="preserve">
+     • ASPX page does not use HTML Headers. Make sure page is robost for screen readers.
+     
+    </Description>
+  </Message>
+  <Message id="PAG004">
+    <Description xml:space="preserve">
+     • ASPX page has HTML header tags out of order. "<h1></h1>" should be before "<h2></h2>"
+     
+    </Description>
+  </Message>
+  <Message id="PAG005">
+    <Description xml:space="preserve">
+     • ASPX page does not begin with "<h1></h1>" html tag. 
+     
+    </Description>
+  </Message>
+</Messages>
+
