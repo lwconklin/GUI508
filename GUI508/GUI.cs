@@ -21,15 +21,6 @@ namespace GUI508
         public GUI() 
         {
             this.InitializeComponent();
-            //mnuExport.Enabled = false;
-            //GuideLineMessages messages = new GuideLineMessages(); 
-            //Scanner scanner = new Scanner();
-            //scanner.DirectorySearch(@"C:\TFS\MarineNet\MarineNet\Source\MarineNetCode-2013\Dev\MarineNet 5.0\MarineNet\");
-            ////scanner.DirectorySearch(@"C:\508TestPages\");
-            //scanner.ASPXScan();
-            //this.FillGridViewControl();
-            //this.FillGridViewPage();
-            //mnuExport.Enabled = true;
         }
 
         /// <summary>

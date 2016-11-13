@@ -22,16 +22,14 @@ using System.Windows.Forms;
         {
             this.InitializeComponent();
             StringBuilder sb = new StringBuilder();
-            this.Text = string.Format("About {0}", this.AssemblyTitle);
+            this.Text = string.Format("About {0}", this.AssemblyTitle + " ASPX Scanner");
             this.labelVersion.Text = string.Format("Version {0}", this.AssemblyVersion);
             this.labelCopyright.Text = this.AssemblyCopyright;
             this.labelCompanyName.Text = this.AssemblyCompany;
             sb.AppendLine(this.AssemblyDescription);
             sb.Append(Environment.NewLine);
             sb.AppendLine("Author: Larry Conkin");
-            sb.AppendLine("Application Email: ABC@ABC.org");
-            sb.AppendLine("Twitter: @abc");
-            sb.AppendLine("Facebook: blah@facebook.com");
+            sb.AppendLine("Application Email: aspx508@gmail.com");
             sb.AppendLine("Notes: https://msdn.microsoft.com/en-us/library/ms228004.aspx");
             this.textBoxDescription.Text = sb.ToString();
         }
