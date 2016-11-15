@@ -26,18 +26,9 @@ information. Depending on those choices the web application will decide on what 
 </ul>
 The GUI508Scanner
 tries solving these problems in two important and powerful ways. 
-Render
-html in the browser is not the source input. The actual source code is. Dynamic
-
-html pages are not transverse. Rather the ASP.NET page is parsed to look at
-
-ASP.NET controls.
-
-Because we can
-look at the actual source code, for each ASP.NET controls on each aspx page and
-
-develop rules about to make sure 508 accessibility attributes, being used meet
-
-accessibility standards, and because we do not have to worry about traversing
-the application, we can investigate all of the code in one pass.  
+<ol>
+<li>Render html in the browser is not the source input. The actual source code is. </li>
+<li>Dynamic html pages are not transverse. Rather the ASP.NET page is parsed to look at ASP.NET controls.</li>
+</ol>
+Because we can look at the actual source code, for each ASP.NET controls on each aspx page and develop rules about to make sure 508 accessibility attributes, being used meet accessibility standards, and because we do not have to worry about traversing the application, we can investigate all of the code in one pass.  
 
