@@ -30,5 +30,10 @@ tries solving these problems in two important and powerful ways.
 <li>Render html in the browser is not the source input. The actual source code is. </li>
 <li>Dynamic html pages are not transverse. Rather the ASP.NET page is parsed to look at ASP.NET controls.</li>
 </ol>
-Because we can look at the actual source code, for each ASP.NET controls on each aspx page and develop rules about to make sure 508 accessibility attributes, being used meet accessibility standards, and because we do not have to worry about traversing the application, we can investigate all of the code in one pass.  
+
+
+Because we can look at the actual source code for each ASP.NET controls on each aspx page and develop rules about to make sure 508 accessibility attributes being use meet accessibility standards, and not worrying about traversing the application, we can investigate all of the code in one pass.  
+
+
+ 
 
