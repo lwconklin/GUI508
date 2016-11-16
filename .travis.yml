@@ -1,2 +1,2 @@
-
-solution: OWASP_CommitsDashBoard.sln 
+language: csharp
+solution: GUI508.sln
