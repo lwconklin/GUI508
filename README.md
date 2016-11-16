@@ -1,7 +1,15 @@
 # <h1>GUI508 ASPX 508 Compliance Scanner</h1>
 
 <h2>Introduction.</h2>
-<p>The 508 scanner is specifically design for Microsoft ASP.NET web form applications 
+<p>
+508 compliance means that all users, regardless of disability status, can access technology. 
+Compliance standards is set by Section 508 of the Rehabilitation Act of 1973 that requires federal agencies to provide software and website accessibility to people with disabilities. When websites are 508 Compliant, they are accessible to all users. This can mean that they are compatible with assistive technology, such as screen readers.
+
+GUI508 only helps to check compliance with ASP.Net web form applications. This program is not a complete 508 checker
+but to help provide guidance on how to correct 508 issues within an existing website that is using ASP.Net server side controls.
+</p>
+
+<p>
 When a browser displays a web page, that page is render into html from various source
 </p>
 <ul>
