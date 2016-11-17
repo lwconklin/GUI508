@@ -125,6 +125,12 @@
     <None Include="Resources\Warning24.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Content Include="Documentation\image001.png" />
+    <Content Include="Documentation\image003.png" />
+    <Content Include="Documentation\image004.png" />
+    <Content Include="Documentation\image005.png" />
+    <Content Include="Documentation\image007.png" />
+    <Content Include="Documentation\image008.png" />
     <Content Include="Resources\AccessibilityGuideLineMessages.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -148,6 +154,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
