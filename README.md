@@ -5,8 +5,8 @@
 508 compliance means that all users, regardless of disability status, can access technology. 
 Compliance standards is set by Section 508 of the Rehabilitation Act of 1973 that requires federal agencies to provide software and website accessibility to people with disabilities. When websites are 508 Compliant, they are accessible to all users. This can mean that they are compatible with assistive technology, such as screen readers.
 
-GUI508 only helps to check compliance with ASP.Net web form applications. This program is not a complete 508 checker
-but to help provide guidance on how to correct 508 issues within an existing website that is using ASP.Net server side controls.
+GUI508 only helps to check compliance with ASP.Net web form applications. This program is not a complete 508 checker.
+It's by providing guidance on how to correct 508 issues within an existing website that is using ASP.Net server side controls to developers and to Project managers to show poterntial 508 issues in existing web sites and web sites under development.
 </p>
 
 <p>
@@ -15,7 +15,8 @@ When a browser displays a web page, that page is render into html from various s
 <ul>
 
 <li>Actual HTML (Hypertext Markup Language).</li>
-<li>A rich set of ASP.Net server-side controls.JavaScript.</li>
+<li>A rich set of ASP.Net server-side controls.</li>
+<li>JavaScript.</li>
 <li>Code-behind pages in using Compiled code that can inject html mark-up using html placement holders.</li>
 <li>Cascading Style Sheets (CSS).</li>
 </ul>
