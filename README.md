@@ -1,4 +1,6 @@
- 
+[![Build status](https://img.shields.io/appveyor/ci/lwconklin/gui508.svg?label=Build&maxAge=60)](https://ci.appveyor.com/project/lwconklin/gui508)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Release](https://img.shields.io/github/release/lwconklin/gui508.svg?label=Release&maxAge=60)](https://github.com/lwconklin/gui508/releases/latest)  
 
 
 # <h1>GUI508 ASPX 508 Compliance Scanner</h1>
