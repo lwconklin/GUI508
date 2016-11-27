@@ -10,8 +10,7 @@ Users[![Build status](https://img.shields.io/appveyor/ci/lwconklin/gui508.svg?la
 508 compliance means that all users, regardless of disability status, can access technology. 
 Compliance standards is set by Section 508 of the Rehabilitation Act of 1973 that requires federal agencies to provide software and website accessibility to people with disabilities. When websites are 508 Compliant, they are accessible to all users. This can mean that they are compatible with assistive technology, such as screen readers.
 
-GUI508 only helps to check compliance with ASP.Net web form applications. This program is not a complete 508 checker.
-It's by providing guidance on how to correct 508 issues within an existing website that is using ASP.Net server side controls to developers and to Project managers to show poterntial 508 issues in existing web sites and web sites under development.
+GUI508 helps to check for 508 compliance with ASP.Net web form applications. This program is not a complete 508 checker. It's provides guidance on identifying and how to correct 508 issues within an existing website that is using ASP.Net server side controls for developers and project managers to show potential 508 issues in existing web sites and web sites under development.
 </p>
 
 <p>
