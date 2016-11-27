@@ -1,4 +1,4 @@
-[![Build status](https://img.shields.io/appveyor/ci/lwconklin/gui508.svg?label=Build&maxAge=60)](https://ci.appveyor.com/project/lwconklin/gui508)
+Users[![Build status](https://img.shields.io/appveyor/ci/lwconklin/gui508.svg?label=Build&maxAge=60)](https://ci.appveyor.com/project/lwconklin/gui508)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Release](https://img.shields.io/github/release/lwconklin/gui508.svg?label=Release&maxAge=60)](https://github.com/lwconklin/gui508/releases/latest)  
 
@@ -32,7 +32,7 @@ In Microsoft ASP.NET web form applications the majority of the html displayed in
 <ul>
 <li>Does not allow insight with development management to view how complaint the application being develop is until initial work is complete and reviewed by a 508/accessibility consultant. </li>
 <li>Does not allow a developer without any accessibility knowledge to know or understand potential problems until late in the development cycle or never.</li>
-<li>Some application work as a SaaS (Software as a Service) causing you to upload your software. Propriety software may not feel comfortable using SaaS solutions.</li>
+<li>Some application work as a SaaS (Software as a Service) causing you to upload your software. Users of propriety software may not feel comfortable using SaaS solutions.</li>
 <li>Another potential problem today with commercial off-the-shelf (COTS) and open source 508 scanners is traversing the application. Web form application requires user interaction. A user will need to click buttons, make selections, and fill in
 
 information. Depending on those choices the web application will decide on what will be the next page in the application display or what new information will be return to the user in the current page. </li>
