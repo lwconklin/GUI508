@@ -1,6 +1,6 @@
-Users[![Build status](https://img.shields.io/appveyor/ci/lwconklin/gui508.svg?label=Build&maxAge=60)](https://ci.appveyor.com/project/lwconklin/gui508)
+[![Build status](https://img.shields.io/appveyor/ci/lwconklin/gui508.svg?label=Build&maxAge=60)](https://ci.appveyor.com/project/lwconklin/gui508)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-p>[![Release](https://img.shields.io/github/release/lwconklin/gui508.svg?label=Release&maxAge=60)](https://github.com/lwconklin/gui508/releases/latest)  
+[![Release](https://img.shields.io/github/release/lwconklin/gui508.svg?label=Release&maxAge=60)](https://github.com/lwconklin/gui508/releases/latest)  
 
 
 # <h1>GUI508 ASPX 508 Compliance Scanner</h1>
@@ -48,11 +48,33 @@ Because we can look at the actual source code for each ASP.NET controls on each 
 
 <h2>Getting started with the code</h2>
 
-<p>Yea! I think this is a win for both of us if you are reading this section. Please do more then read, contribute.
+<p>Yea! I think this is a win for both of us if you are reading this section. Please do more than read, contribute.
 
-Ok. I can’t rewrite the entire git manual here and you wouldn’t want me to. If you new to GitHub here are some links to get you
+Ok. I can’t rewrite the entire git manual here and you wouldn’t want me to. If you are new to GitHub here are some links to help get you
 started.</p>
 <ol>
+<li>Download the code from GitHub </li>
+<li>Command line to download code to your current directory. git clone git://github.com/lwconklin/GUI508.git</li>
+</ol>
+
+<p> Of course, GitHub provides more than one way to get source code. Look to the far right you should see a button labeled with "Clone or Download" clicking this button, you get more options.
+<ol>
+<li>Download zip</li>
+<li>Download open with Visual Studio.</li>
+<li>Download and use Desktop Git.</li>
+<li>Use http or SSH to download the code.
+<p>
+Now that we have, the code dowloaded. You need to make sure you have Visual Studio 2012 or above. The community version will work fine (https://www.visualstudio.com/downloads/). Also you will need StyleCop. StyleCop doesn't add functionality but it does help keeping the code consistent and is beneficial to both the individual developer and the team. Best bet is to use NuGet to StyleCop install.</p>
+
+<p>Ok so now let's do some coding. We are going to use radio button as an example and see if we can create a new .Net apsx control. CheckedListBox in order to be 508 complaint needs the title attribute set on the input element. So what we w do is identified every place a checkedlistbox is used and see if it has the correct attributes set so when the html code is generated it is  complaint.</p>
+<p>
+<ol>
+<li>Create a class called ASPX_CheckedListBox.</li>
+<ol>
+<li>This class will hold our definitions for finding the control in the aspx files.xample from the button. "asp:RadioButton([\s/S[*?)/>" and "([\s\S]*?)". We need two regex expressions .Net Control.</li>
+</ol>
+</ol>
+
 
 
 
