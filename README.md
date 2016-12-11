@@ -63,6 +63,7 @@ started.</p>
 <li>Download open with Visual Studio.</li>
 <li>Download and use Desktop Git.</li>
 <li>Use http or SSH to download the code.
+<li>
 </ol>
 <p>
 Now that we have, the code dowloaded. You need to make sure you have Visual Studio 2012 or above. The community version will work fine (https://www.visualstudio.com/downloads/). Also you will need StyleCop. StyleCop doesn't add functionality but it does help keeping the code consistent and is beneficial to both the individual developer and the team. Best bet is to use NuGet to StyleCop install.</p>
@@ -76,8 +77,9 @@ Now that we have, the code dowloaded. You need to make sure you have Visual Stud
 <li>This class will also call the regex scanner with the results coming back in a dictionary structure.</li>
 </ol>
 <li>Scanner class is the main driver to find the .Net control.</li>
-<ol><li>ASPXScan() is the main method. In our example it is "AddToMasterDictionary(button.ParseRadioButton(list,aspxControl, fileInfo.Name, fileInfo.DirectoryName))</li>
-<li>Now that we have found all of the instances of CheckedListBox we need to perform the validation. Validation and Rules classes come into play now. Validation class is the driver and decides what rules the CheckedListBox must meet to be 508 complaint.</li>
+<ol><li>ASPXScan() is the main method. In our example it is "AddToMasterDictionary(button.ParseRadioButton(list,aspxControl, fileInfo.Name, fileInfo.DirectoryName))
+</ol>
+</li>Now that we have found all of the instances of CheckedListBox we need to perform the validation. Validation and Rules classes come into play now. Validation class is the driver and decides what rules the CheckedListBox must meet to be 508 complaint.</li>
 <li>Once all of the .Net controls have been process the results in the dictionary (Scanner.AspxControlSorted) will appear in the grid view.</li>
 <li>The text for each control is linked by a message id. Each control can have its own message ids or share some common ones between controls. The message test is an XML file. Having an XML file allows users to change to meet their own developers and project managers help their own organizations become 508 complaint. </li>
 </ol>
