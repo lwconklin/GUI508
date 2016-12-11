@@ -46,9 +46,9 @@ Because we can look at the actual source code for each ASP.NET controls on each 
 </p>
 
 
-<h2>Getting started with the code<h2>
+<h2>Getting started with the code</h2>
 
-<p>Yea! I think this is a win for both of us if you are readingthis section. Please do more then read, contribute.
+<p>Yea! I think this is a win for both of us if you are reading this section. Please do more then read, contribute.
 
 Ok. I can’t rewrite the entire git manual here and you wouldn’t want me to. If you new to GitHub here are some links to get you
 started.</p>
