@@ -5,43 +5,6 @@ p>[![Release](https://img.shields.io/github/release/lwconklin/gui508.svg?label=R
 
 # <h1>GUI508 ASPX 508 Compliance Scanner</h1>
 
-<h2>Introduction<Download the code from GitHub https://help.github.com/articles/cloning-a-repository/
-Command line to download code in current directory git clone git://github.com/lwconklin/GUI508.git
-
-Of course, GitHub provides more than one way to get the source code. https://github.com/lwconklin/GUI508 look to far right you should see a button label with “Cone or Download” clicking this button, you get more options.
-Download zipDownload at use Visual StudioDownload and use Desktop Git.Use Http or SSH to download the code.
-
-Now that we have, the code downloaded. You need to make sure
-you have Visual Studio 2012 or above. The Community version will work fine (https://www.visualstudio.com/downloads/).
-Also you will need StyleCop. StyleCop doesn’t add functionality but it does help
-keeping the code consistent is beneficial to both the individual developer and
-the team. Best bet is to use NuGet to StyleCop install.
-
- 
-
-Ok so now let’s do some coding. We are going to look at CheckedListBox
-(https://msdn.microsoft.com/en-us/library/system.windows.forms.checkedlistbox(v=vs.110).aspx).
-The CheckedListBox in order to be 508 compliant needs to the title attribute
-set on the input element instead of the surrounding span. So what we want to is
-identified every place a checkedlistbox is used and if possible see if it has
-the correct attributes set so when the html code is created from the aspx
-server side control it is 508 complaint.
-
-Create a class called ASPX_CheckedListBox. This class will hold our regex definitions for find
-the control in the aspx files. Here is an example form the button class.asp:RadioButton ([\s\S]*?)/>" and ([\s\S]*?)
-we need two regex expressions for each .Net control.This class will also call the regex scanner with
-the results coming back in a dictionary structure.Scanner class is the main driver to find the
-.Net control.ASPXScan() is the main method. In our example it
-is AddToMasterDictionary(button.ParseRadioButton(list, aspxControl,
-fileInfo.Name, fileInfo.DirectoryName));Now that we have found all of the instances of
-CheckedListBox we need to perform the validation. Validation and the Rules
-classes come into play now. The validation class is the driver and decides what
-rules the CheckedListBox must meet to be 508 complaint. One all .Net controls have been process the results
-in the dictionary (Scanner.AspxControlsSorted) will appear in the grid view. The text for each control is linked by a message
-id and it’s text. Each control can have its own message ids or share some
-common ones between controls. The message text is an XML file. Having an XML
-allows user to change the messages to meet their own needs for developers and
-project managers. .</h2>
 <p>
 508 compliance means that all users, regardless of disability status, can access technology. 
 Compliance standards is set by Section 508 of the Rehabilitation Act of 1973 that requires federal agencies to provide software and website accessibility to people with disabilities. When websites are 508 Compliant, they are accessible to all users. This can mean that they are compatible with assistive technology, such as screen readers.
@@ -73,15 +36,14 @@ In Microsoft ASP.NET web form applications the majority of the html displayed in
 information. Depending on those choices the web application will decide on what will be the next page in the application display or what new information will be return to the user in the current page. </li>
 
 </ul>
-The GUI508Scanner
-tries solving these problems in two important and powerful ways. 
+The GUI508Scanner tries solving these problems in two important and powerful ways. 
 <ol>
 <li>Render html in the browser is not the source input. The actual source code is. </li>
 <li>Dynamic html pages are not transverse. Rather the ASP.NET page is parsed to look at ASP.NET controls.</li>
 </ol>
-
-
+<p>
 Because we can look at the actual source code for each ASP.NET controls on each aspx page and develop rules about to make sure 508 accessibility attributes being use meet accessibility standards, and not worrying about traversing the application, we can investigate all of the code in one pass.  
+</p>
 
 
 <h2>Getting started with the code<h2>
@@ -108,9 +70,7 @@ started.</p>
 
 
 
-
-So please don’t just read. Contribute. Everyone should be
-able to access the web.
+<p> So please don’t just read. Contribute. Everyone should be able to access the web. </p>
 
 
 
