@@ -48,13 +48,12 @@ Because we can look at the actual source code for each ASP.NET controls on each 
 
 <h2>Getting started with the code</h2>
 
-<p>Yea! I think this is a win for both of 
-<li>us if you are reading this section. Please do more than read, contribute.
-
+<p>Yea! I think this is a win for both us if you are reading this section. Please do more than read, contribute. </p>
+<p>
 Ok. I can’t rewrite the entire git manual here and you wouldn’t want me to. If you are new to GitHub here are some links to help get you
 started.</p>
 <ol>
-<li>Download the code from GitHub </li>
+<li>Download the code from GitHub https://help.githubrticles/cloning-a-repository/</li>
 <li>Command line to download code to your current directory. git clone git://github.com/lwconklin/GUI508.git</li>
 </ol>
 
