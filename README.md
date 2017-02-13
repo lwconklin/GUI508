@@ -1,11 +1,10 @@
-Users[![Build status](https://img.shields.io/appveyor/ci/lwconklin/gui508.svg?label=Build&maxAge=60)](https://ci.appveyor.com/project/lwconklin/gui508)
+[![Build status](https://img.shields.io/appveyor/ci/lwconklin/gui508.svg?label=Build&maxAge=60)](https://ci.appveyor.com/project/lwconklin/gui508)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Release](https://img.shields.io/github/release/lwconklin/gui508.svg?label=Release&maxAge=60)](https://github.com/lwconklin/gui508/releases/latest)  
 
 
 # <h1>GUI508 ASPX 508 Compliance Scanner</h1>
 
-<h2>Introduction.</h2>
 <p>
 508 compliance means that all users, regardless of disability status, can access technology. 
 Compliance standards is set by Section 508 of the Rehabilitation Act of 1973 that requires federal agencies to provide software and website accessibility to people with disabilities. When websites are 508 Compliant, they are accessible to all users. This can mean that they are compatible with assistive technology, such as screen readers.
@@ -37,15 +36,72 @@ In Microsoft ASP.NET web form applications the majority of the html displayed in
 information. Depending on those choices the web application will decide on what will be the next page in the application display or what new information will be return to the user in the current page. </li>
 
 </ul>
-The GUI508Scanner
-tries solving these problems in two important and powerful ways. 
+The GUI508Scanner tries solving these problems in two important and powerful ways. 
 <ol>
 <li>Render html in the browser is not the source input. The actual source code is. </li>
 <li>Dynamic html pages are not transverse. Rather the ASP.NET page is parsed to look at ASP.NET controls.</li>
 </ol>
-
-
+<p>
 Because we can look at the actual source code for each ASP.NET controls on each aspx page and develop rules about to make sure 508 accessibility attributes being use meet accessibility standards, and not worrying about traversing the application, we can investigate all of the code in one pass.  
+</p>
+
+
+<h2>Getting started with the code</h2>
+
+<p>Yea! I think this is a win for both us if you are reading this section. Please do more than read, contribute. </p>
+<p>
+Ok. I can’t rewrite the entire git manual here and you wouldn’t want me to. If you are new to GitHub here are some links to help get you
+started.</p>
+<ol>
+<li>Download the code from GitHub https://help.githubrticles/cloning-a-repository/</li>
+<li>Command line to download code to your current directory. git clone git://github.com/lwconklin/GUI508.git</li>
+</ol>
+
+<p> Of course, GitHub provides more than one way to get source code. Look to the far right you should see a button labeled with "Clone or Download" clicking this button, you get more options.
+<ol>
+<li>Download zip</li>
+<li>Download open with Visual Studio.</li>
+<li>Download and use Desktop Git.</li>
+<li>Use http or SSH to download the code.</li>
+</ol>
+<p>
+Now that we have, the code dowloaded. You need to make sure you have Visual Studio 2012 or above. The community version will work fine (https://www.visualstudio.com/downloads/). Also you will need StyleCop. StyleCop doesn't add functionality but it does help keeping the code consistent and is beneficial to both the individual developer and the team. Best bet is to use NuGet to StyleCop install.</p>
+
+<p>Ok so now let's do some coding. We are going to use radio button as an example and see if we can create a new .Net apsx control. CheckedListBox in order to be 508 complaint needs the title attribute set on the input element. So what we w do is identified every place a checkedlistbox is used and see if it has the correct attributes set so when the html code is generated it is  complaint.</p>
+<p>
+<ol>
+<li>Create a class called ASPX_CheckedListBox.</li>
+<ol>
+<li>This class will hold our definitions for finding the control in the aspx files.xample from the button. "asp:RadioButton([\s/S[*?)/>" and "([\s\S]*?)". We need two regex expressions .Net Control.</li>
+<li>This class will also call the regex scanner with the results coming back in a dictionary structure.</li>
+</ol>
+<li>Scanner class is the main driver to find the .Net control.</li>
+<ol><li>ASPXScan() is the main method. In our example it is "AddToMasterDictionary(button.ParseRadioButton(list,aspxControl, fileInfo.Name, fileInfo.DirectoryName))</li>
+</ol>
+<li>Now that we have found all of the instances of CheckedListBox we need to perform the validation. Validation and Rules classes come into play now. Validation class is the driver and decides what rules the CheckedListBox must meet to be 508 complaint.</li>
+<li>Once all of the .Net controls have been process the results in the dictionary (Scanner.AspxControlSorted) will appear in the grid view.</li>
+<li>The text for each control is linked by a message id. Each control can have its own message ids or share some common ones between controls. The message test is an XML file. Having an XML file allows users to change to meet their own developers and project managers help their own organizations become 508 complaint. </li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p> So please don’t just read. Contribute. Everyone should be able to access the web. </p>
+
 
 
  
