@@ -67,6 +67,12 @@
        
     </Description>
   </Message>
+  <Message id="XXX0001">
+    <Description xml:space="preserve">
+    • This ASPX control currently has not validation rules for 508 complainance. Sorry.
+    
+   </Description>
+  </Message>
   <Message id="AUT001">
     <Description xml:space="preserve">
      • If an ASP.NET Web Forms page implements this behavior by using the AutoPostBack property, the entire page might be refreshed.

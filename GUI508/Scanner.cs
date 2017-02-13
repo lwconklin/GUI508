@@ -89,20 +89,19 @@ namespace GUI508
             {
                 this.CreateFileListing(file);
                 FileInfo fileInfo = new FileInfo(file);
-                this.AddToMasterDictionary(this.literal.ParseLiteral(this.list, aspxControl, fileInfo.Name, fileInfo.DirectoryName));
-                aspxControl.Clear();
-                this.AddToMasterDictionary(this.htmlHeader.ParseHeaderTag(this.list, aspxControl, fileInfo.Name, fileInfo.DirectoryName));
-                aspxControl.Clear();
-                this.AddToMasterDictionary(this.button.ParseLinkButton(this.list, aspxControl, fileInfo.Name, fileInfo.DirectoryName));
-                aspxControl.Clear();
-                this.AddToMasterDictionary(this.button.ParseRadioButton(this.list, aspxControl, fileInfo.Name, fileInfo.DirectoryName));
-                aspxControl.Clear();
-                this.AddToMasterDictionary(this.image.ParseImage(this.list, aspxControl, fileInfo.Name, fileInfo.DirectoryName));
-                aspxControl.Clear();
-                this.AddToMasterDictionary(this.image.ParseImageButton(this.list, aspxControl, fileInfo.Name, fileInfo.DirectoryName));
-                aspxControl.Clear();
-                this.AddToMasterDictionary(this.image.ParseImageMap(this.list, aspxControl, fileInfo.Name, fileInfo.DirectoryName));
-                aspxControl.Clear();
+                StartUpInitialization.AspxList.ForEach(delegate(StartUpInitialization.AspxControlInformation aci)
+                {
+                     if (aci.IsParsable.Equals(true)) 
+                     {
+                        aspxControl = RegexParser.FindControl(list, aci.RegexComplete, aci.RegexBeginning, aspxControl, fileInfo.Name, fileInfo.DirectoryName, aci.ControlName);
+                        if (aspxControl.Count > 0)
+                        {
+                            Validation.Validate(ref aspxControl, aci.ControlName);
+                            this.AddToMasterDictionary(aspxControl);
+                            aspxControl.Clear();
+                        }
+                     }
+                 });
                 this.list.Clear();
             }
 

@@ -17,6 +17,39 @@ namespace GUI508
     public class Validation 
     {
         /// <summary>
+        /// Driver of what validation methods for each control to be used in validation.
+        /// </summary>
+        /// <param name="aspxControls">Scanner ASPX Control Properties.</param>
+        /// <param name="controlName">ASPX name.</param>
+        public static void Validate(ref Dictionary<Guid, Scanner.ASPXControlProperties> aspxControls, string controlName)
+        {
+            switch (controlName)
+            {
+                case "asp:Image":
+                    ValidateImage(ref aspxControls);
+                    break;
+                case "asp:ImageButton":
+                    ValidateImageButton(ref aspxControls);
+                    break;
+                case "asp:ImageMap":
+                    ValidateImageMap(ref aspxControls);
+                    break;
+                case "<asp:RadioButton":
+                    ValidateRadioButtons(ref aspxControls);
+                    break;
+                case "asp:LinkButton":
+                    ValidateLiteral(ref aspxControls);
+                    break;
+                case "asp:Literal":
+                    ValidateLiteral(ref aspxControls);
+                    break;
+                default:
+                    NonValidatedControls(ref aspxControls);
+                    break;
+            }
+        }
+
+        /// <summary>
         /// Validate ASPX Image Button.
         /// </summary>
         /// <param name="aspxControls">Dictionary of aspx controls found.</param>
@@ -106,6 +139,25 @@ namespace GUI508
                     aspxControlProperties = kvp.Value;
                     aspxControlProperties.ControlMessages = new List<string>();
                     aspxControlProperties.ControlMessages.Add("LIT0001");
+                    aspxControls[kvp.Key] = aspxControlProperties;
+                }
+            }
+        }
+
+        /// <summary>
+        ///  Non vaildated controls.
+        /// </summary>
+        /// <param name="aspxControls">Dictionary of aspx controls found.</param>
+        public static void NonValidatedControls(ref Dictionary<Guid, Scanner.ASPXControlProperties> aspxControls) 
+        {
+            Scanner.ASPXControlProperties aspxControlProperties = new Scanner.ASPXControlProperties();
+            foreach (KeyValuePair<Guid, Scanner.ASPXControlProperties> kvp in aspxControls.ToArray()) 
+            {
+                if (aspxControls.Count > 0) 
+                {
+                    aspxControlProperties = kvp.Value;
+                    aspxControlProperties.ControlMessages = new List<string>();
+                    aspxControlProperties.ControlMessages.Add("XXX0001");
                     aspxControls[kvp.Key] = aspxControlProperties;
                 }
             }

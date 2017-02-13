@@ -21,6 +21,8 @@ namespace GUI508
         public GUI() 
         {
             this.InitializeComponent();
+            StartUpInitialization startUp = new StartUpInitialization();
+            startUp.Initalization();
         }
 
         /// <summary>
@@ -48,9 +50,17 @@ namespace GUI508
                     GridViewControl.Rows[index].Cells["DictionaryKey"].Value = kvp.Key;
                     if ((kvp.Value.ControlMessages != null) && (kvp.Value.ControlMessages.Count > 0))
                     {
-                        GridViewControl.Rows[index].DefaultCellStyle.BackColor = Color.LightYellow;
-                        GridViewControl.Rows[index].Cells["ASPXAlert"].Value = Properties.Resources.Warning24;
-                    }
+                        if (kvp.Value.ControlMessages[0].Equals("XXX0001")) 
+                        {
+                            GridViewControl.Rows[index].DefaultCellStyle.BackColor = Color.LightGray;
+                            GridViewControl.Rows[index].Cells["ASPXAlert"].Value = nullImage;
+                        }
+                        else
+                        {
+                            GridViewControl.Rows[index].DefaultCellStyle.BackColor = Color.LightYellow;
+                            GridViewControl.Rows[index].Cells["ASPXAlert"].Value = Properties.Resources.Warning24;
+                        }
+                     }
                     else
                     {
                         GridViewControl.Rows[index].Cells["ASPXAlert"].Value = nullImage;
@@ -140,6 +150,7 @@ namespace GUI508
                 GuideLineMessages messages = new GuideLineMessages(); 
                 Scanner scanner = new Scanner();
                 scanner.DirectorySearch(dialog.SelectedPath);
+                //scanner.DirectorySearch(@"C:\MNDemo\MarineNet 5.0\MarineNet");
                 scanner.ASPXScan();
                 this.FillGridViewControl();
                 this.FillGridViewPage();
