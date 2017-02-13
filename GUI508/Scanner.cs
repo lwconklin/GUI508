@@ -35,36 +35,12 @@ namespace GUI508
         private List<string> list;
 
         /// <summary>
-        /// Definition of class ASPX_Image.
-        /// </summary>
-        private ASPX_Image image;
-
-        /// <summary>
-        /// Definition of class ASPX_Button.
-        /// </summary>
-        private ASPX_Button button;
-
-        /// <summary>
-        /// Definition of class Html Class.
-        /// </summary>
-        private HtmlHeader htmlHeader;
-
-        /// <summary>
-        /// Definition of class ASPX_Literal Class.
-        /// </summary>
-        private ASPX_Literal literal;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="Scanner"/> class.
         /// </summary>
         public Scanner()
         {
             this.aspxFiles = new List<string>();
             this.list = new List<string>();
-            this.image = new ASPX_Image();
-            this.button = new ASPX_Button();
-            this.htmlHeader = new HtmlHeader();
-            this.literal = new ASPX_Literal();
         }
 
         /// <summary>

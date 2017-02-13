@@ -68,8 +68,6 @@
     <Compile Include="ASPXServerSideControl.Designer.cs">
       <DependentUpon>ASPXServerSideControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="ASPX_Button.cs" />
-    <Compile Include="ASPX_Literal.cs" />
     <Compile Include="Export.cs" />
     <Compile Include="GuideLineMessages.cs" />
     <Compile Include="HtmlHeader.cs" />
@@ -80,7 +78,6 @@
     </Compile>
     <Compile Include="Rules.cs" />
     <Compile Include="Scanner.cs" />
-    <Compile Include="ASPX_Image.cs" />
     <Compile Include="GUI.cs">
       <SubType>Form</SubType>
     </Compile>
