@@ -33,14 +33,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.codeBehindFolder = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.listASPX = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lineNumber = new System.Windows.Forms.Label();
             this.lblMesages = new System.Windows.Forms.Label();
-            this.listMessages = new System.Windows.Forms.ListBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.rtfAspxControl = new System.Windows.Forms.RichTextBox();
+            this.rtfMessages = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,17 +75,6 @@
             this.label2.Size = new System.Drawing.Size(110, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Code behind .cs";
-            // 
-            // listASPX
-            // 
-            this.listASPX.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.listASPX.FormattingEnabled = true;
-            this.listASPX.IntegralHeight = false;
-            this.listASPX.ItemHeight = 16;
-            this.listASPX.Location = new System.Drawing.Point(200, 118);
-            this.listASPX.Name = "listASPX";
-            this.listASPX.Size = new System.Drawing.Size(846, 298);
-            this.listASPX.TabIndex = 4;
             // 
             // label3
             // 
@@ -129,16 +118,6 @@
             this.lblMesages.Size = new System.Drawing.Size(0, 17);
             this.lblMesages.TabIndex = 9;
             // 
-            // listMessages
-            // 
-            this.listMessages.FormattingEnabled = true;
-            this.listMessages.HorizontalScrollbar = true;
-            this.listMessages.ItemHeight = 16;
-            this.listMessages.Location = new System.Drawing.Point(197, 463);
-            this.listMessages.Name = "listMessages";
-            this.listMessages.Size = new System.Drawing.Size(1422, 196);
-            this.listMessages.TabIndex = 10;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -148,22 +127,43 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Messages";
             // 
+            // rtfAspxControl
+            // 
+            this.rtfAspxControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtfAspxControl.Location = new System.Drawing.Point(197, 169);
+            this.rtfAspxControl.Name = "rtfAspxControl";
+            this.rtfAspxControl.ReadOnly = true;
+            this.rtfAspxControl.Size = new System.Drawing.Size(846, 248);
+            this.rtfAspxControl.TabIndex = 13;
+            this.rtfAspxControl.Text = "";
+            // 
+            // rtfMessages
+            // 
+            this.rtfMessages.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtfMessages.Location = new System.Drawing.Point(197, 463);
+            this.rtfMessages.Name = "rtfMessages";
+            this.rtfMessages.ReadOnly = true;
+            this.rtfMessages.Size = new System.Drawing.Size(1422, 196);
+            this.rtfMessages.TabIndex = 10;
+            this.rtfMessages.Text = "";
+            // 
             // ASPXServerSideControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1706, 724);
+            this.Controls.Add(this.rtfMessages);
+            this.Controls.Add(this.rtfAspxControl);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.listMessages);
             this.Controls.Add(this.lblMesages);
             this.Controls.Add(this.lineNumber);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.listASPX);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.codeBehindFolder);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.aspxPageFolder);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.SystemColors.InfoText;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ASPXServerSideControl";
@@ -181,13 +181,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox codeBehindFolder;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ListBox listASPX;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem printToolStripMenuItem;
         private System.Windows.Forms.Label lineNumber;
         private System.Windows.Forms.Label lblMesages;
-        private System.Windows.Forms.ListBox listMessages;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.RichTextBox rtfAspxControl;
+        private System.Windows.Forms.RichTextBox rtfMessages;
     }
 }

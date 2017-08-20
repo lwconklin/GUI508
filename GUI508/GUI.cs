@@ -150,7 +150,6 @@ namespace GUI508
                 GuideLineMessages messages = new GuideLineMessages(); 
                 Scanner scanner = new Scanner();
                 scanner.DirectorySearch(dialog.SelectedPath);
-                //scanner.DirectorySearch(@"C:\MNDemo\MarineNet 5.0\MarineNet");
                 scanner.ASPXScan();
                 this.FillGridViewControl();
                 this.FillGridViewPage();
@@ -200,28 +199,6 @@ namespace GUI508
         }
 
         /// <summary>
-        /// Displays details of selected row in GridViewControl.
-        /// </summary>
-        /// <param name="sender"> Object GridView.</param>  
-        /// <param name="e">Data Grid View Cell Event Args.</param>
-        private void GridViewControl_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                DataGridViewRow row = GridViewControl.Rows[e.RowIndex];
-                if (row.Cells["Select"].Selected.Equals(true))
-                {
-                    Scanner.ASPXControlProperties aspxControlProperties = new Scanner.ASPXControlProperties();
-                    aspxControlProperties.ControlMessages = new List<string>();
-                    aspxControlProperties = Scanner.AspxControlsSorted[row.Cells["DictionaryKey"].Value.ToString()];
-                    ASPXServerSideControl aspxDetails = new ASPXServerSideControl();
-                    aspxDetails.FillForm(aspxControlProperties);
-                    aspxDetails.ShowDialog();
-                }
-            }
-        }
-
-        /// <summary>
         /// Displays details of selected row in GridViewPage.
         /// </summary>
         /// <param name="sender"> Object GridView.</param>  
@@ -239,6 +216,28 @@ namespace GUI508
                     ASPXPage aspxPage = new ASPXPage();
                     aspxPage.FillForm(aspxPageProperties);
                     aspxPage.ShowDialog();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Displays details of selected row in GridViewControl.
+        /// </summary>
+        /// <param name="sender"> Object GridView.</param>  
+        /// <param name="e">Data Grid View Cell Event Args.</param>
+        private void GridViewControl_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                DataGridViewRow row = GridViewControl.Rows[e.RowIndex];
+                if (row.Cells["Select"].Selected.Equals(true))
+                {
+                    Scanner.ASPXControlProperties aspxControlProperties = new Scanner.ASPXControlProperties();
+                    aspxControlProperties.ControlMessages = new List<string>();
+                    aspxControlProperties = Scanner.AspxControlsSorted[row.Cells["DictionaryKey"].Value.ToString()];
+                    ASPXServerSideControl aspxDetails = new ASPXServerSideControl();
+                    aspxDetails.FillForm(aspxControlProperties);
+                    aspxDetails.ShowDialog();
                 }
             }
         }
@@ -275,6 +274,16 @@ namespace GUI508
                 Export exportdata = new Export();
                 exportdata.ExportPagesToCSV(saveCSV.FileName);
             }
+        }
+
+        private void GridViewControl_ColumnSortModeChanged(object sender, DataGridViewColumnEventArgs e)
+        {
+
+        }
+
+        private void GridViewControl_Sorted(object sender, System.EventArgs e)
+        {
+
         }
      } // end of class
 } // end of namespace

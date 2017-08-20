@@ -34,16 +34,17 @@ using System.Windows.Forms;
         /// <param name="aspxControlProperties">Struct of properties about a server-side control.</param>
         public void FillForm(Scanner.ASPXControlProperties aspxControlProperties)
         {
+            rtfAspxControl.Font = new Font("Verdana", 10f, FontStyle.Regular);
             aspxPageFolder.Text = aspxControlProperties.FileName;
             codeBehindFolder.Text = aspxControlProperties.CodeBehind;
             lineNumber.Text = lineNumber.Text + " " + aspxControlProperties.LineNumber;
             foreach (string line in this.CreatePrettyListing(aspxControlProperties.AspxControl))
             {
-                listASPX.Items.Add(line.Trim());
+                rtfAspxControl.AppendText(line.Trim());
+                rtfAspxControl.AppendText(Environment.NewLine);
             }
-
-            listASPX.Items.Add(Environment.NewLine);
-            listMessages.Items.Clear();
+            rtfMessages.Font = new Font("Verdana", 10f, FontStyle.Regular);
+            rtfMessages.Clear();
             if (aspxControlProperties.ControlMessages != null)
             {
                 List<string> l = new List<string>();
@@ -52,10 +53,8 @@ using System.Windows.Forms;
                     l = GuideLineMessages.Messages[errorId];
                     foreach (string s in l)
                     {
-                        listMessages.Items.Add(s);
+                        rtfMessages.AppendText(s);
                     }
-
-                    listMessages.Items.Add(Environment.NewLine);
                 }
             }
         }

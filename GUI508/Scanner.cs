@@ -8,6 +8,7 @@ namespace GUI508
     using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Windows.Forms;
 
     /// <summary>
     /// Driver to control what needs to be scanned.
@@ -42,6 +43,11 @@ namespace GUI508
             this.aspxFiles = new List<string>();
             this.list = new List<string>();
         }
+
+        /// <summary>
+        /// Boolean field to let scanner know ASPX files were found in target directory
+        /// </summary>
+        private bool FoundFiles = false;
 
         /// <summary>
         /// Gets a sorted dictionary of aspx controls.
@@ -103,6 +109,16 @@ namespace GUI508
                     this.ProcessDirectory(s);
                 }
             }
+            if (FoundFiles.Equals(false))
+            {
+                MessageBox.Show("No aspx files were found in " + targetDirectory,
+                "Critical Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign,
+                    true);
+            }
         }
 
         /// <summary>
@@ -111,11 +127,28 @@ namespace GUI508
         /// <param name="s">Folder name.</param>
         private void ProcessDirectory(string s) 
         {
-           string[] files = Directory.GetFiles(s, "*.aspx");
-           foreach (string file in files) 
-           {
-               this.aspxFiles.Add(file);
-           }
+              try
+            {
+                string[] files = Directory.GetFiles(s, "*.aspx");
+                foreach (string file in files)
+                {
+                    this.aspxFiles.Add(file);
+                    FoundFiles = true;
+                }
+
+            }
+            catch (Exception e)
+            {
+
+                MessageBox.Show(e.Message,
+                "Critical Warning",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.RightAlign,
+                    true);
+                Application.Exit();
+            }
        }
 
         /// <summary>

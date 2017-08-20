@@ -35,6 +35,14 @@ namespace GUI508
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GUI));
             this.GridViewControl = new System.Windows.Forms.DataGridView();
+            this.Select = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ASPXAlert = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ControlType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Line = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ControlString = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodeBehind = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Directory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dictionaryKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Menu = new System.Windows.Forms.MenuStrip();
             this.sourceCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFileOpen = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,6 +50,7 @@ namespace GUI508
             this.exportASPNetControlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportPagesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.preferencesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
@@ -54,14 +63,6 @@ namespace GUI508
             this.ASPXPage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DirectoryPage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
-            this.Select = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ASPXAlert = new System.Windows.Forms.DataGridViewImageColumn();
-            this.ControlType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Line = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ControlString = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CodeBehind = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Directory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dictionaryKey = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewControl)).BeginInit();
             this.Menu.SuspendLayout();
             this.TabControl.SuspendLayout();
@@ -95,11 +96,81 @@ namespace GUI508
             this.GridViewControl.Size = new System.Drawing.Size(1766, 587);
             this.GridViewControl.TabIndex = 0;
             this.GridViewControl.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewControl_CellClick);
+            this.GridViewControl.ColumnSortModeChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GridViewControl_ColumnSortModeChanged);
+            this.GridViewControl.Sorted += new System.EventHandler(this.GridViewControl_Sorted);
+            // 
+            // Select
+            // 
+            this.Select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Select.HeaderText = "Select";
+            this.Select.Image = global::GUI508.Properties.Resources.select_text;
+            this.Select.Name = "Select";
+            this.Select.ReadOnly = true;
+            this.Select.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Select.ToolTipText = "Select to see details";
+            this.Select.Width = 53;
+            // 
+            // ASPXAlert
+            // 
+            this.ASPXAlert.HeaderText = "Alert";
+            this.ASPXAlert.Name = "ASPXAlert";
+            this.ASPXAlert.ReadOnly = true;
+            this.ASPXAlert.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.ASPXAlert.ToolTipText = "Alert";
+            // 
+            // ControlType
+            // 
+            this.ControlType.HeaderText = "ASP.Net Control Name";
+            this.ControlType.Name = "ControlType";
+            this.ControlType.ReadOnly = true;
+            this.ControlType.ToolTipText = "ASPX Server-side Control";
+            this.ControlType.Width = 180;
+            // 
+            // Line
+            // 
+            this.Line.HeaderText = "Line Number";
+            this.Line.Name = "Line";
+            this.Line.ReadOnly = true;
+            this.Line.ToolTipText = "Line Number";
+            // 
+            // ControlString
+            // 
+            this.ControlString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ControlString.HeaderText = "ASP.Net Code";
+            this.ControlString.Name = "ControlString";
+            this.ControlString.ReadOnly = true;
+            this.ControlString.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ControlString.ToolTipText = "Server-side control text";
+            // 
+            // CodeBehind
+            // 
+            this.CodeBehind.HeaderText = "Code Behind";
+            this.CodeBehind.Name = "CodeBehind";
+            this.CodeBehind.ReadOnly = true;
+            this.CodeBehind.ToolTipText = "Code Behind";
+            // 
+            // Directory
+            // 
+            this.Directory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Directory.HeaderText = "Directory";
+            this.Directory.Name = "Directory";
+            this.Directory.ReadOnly = true;
+            this.Directory.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.Directory.ToolTipText = "Directory";
+            this.Directory.Width = 71;
+            // 
+            // dictionaryKey
+            // 
+            this.dictionaryKey.HeaderText = "";
+            this.dictionaryKey.Name = "dictionaryKey";
+            this.dictionaryKey.ReadOnly = true;
+            this.dictionaryKey.Visible = false;
             // 
             // Menu
             // 
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sourceCodeToolStripMenuItem,
+            this.preferencesToolStripMenuItem,
             this.aboutToolStripMenuItem,
             this.aboutToolStripMenuItem1});
             this.Menu.Location = new System.Drawing.Point(0, 0);
@@ -155,6 +226,12 @@ namespace GUI508
             this.mnuExit.Size = new System.Drawing.Size(208, 24);
             this.mnuExit.Text = "Exit";
             this.mnuExit.Click += new System.EventHandler(this.MnuExit_Click);
+            // 
+            // preferencesToolStripMenuItem
+            // 
+            this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(97, 24);
+            this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // aboutToolStripMenuItem
             // 
@@ -261,70 +338,6 @@ namespace GUI508
             this.saveFileDialog.Filter = "CSV only | *.csv";
             this.saveFileDialog.Title = "Export Data to CSV";
             // 
-            // Select
-            // 
-            this.Select.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Select.HeaderText = "Select";
-            this.Select.Image = global::GUI508.Properties.Resources.select_text;
-            this.Select.Name = "Select";
-            this.Select.ReadOnly = true;
-            this.Select.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Select.ToolTipText = "Select to see details";
-            this.Select.Width = 53;
-            // 
-            // ASPXAlert
-            // 
-            this.ASPXAlert.HeaderText = "Alert";
-            this.ASPXAlert.Name = "ASPXAlert";
-            this.ASPXAlert.ReadOnly = true;
-            // 
-            // ControlType
-            // 
-            this.ControlType.HeaderText = "ASP.Net Control Name";
-            this.ControlType.Name = "ControlType";
-            this.ControlType.ReadOnly = true;
-            this.ControlType.ToolTipText = "ASPX Server-side Control";
-            this.ControlType.Width = 180;
-            // 
-            // Line
-            // 
-            this.Line.HeaderText = "Line Number";
-            this.Line.Name = "Line";
-            this.Line.ReadOnly = true;
-            this.Line.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Line.ToolTipText = "Line Number";
-            // 
-            // ControlString
-            // 
-            this.ControlString.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ControlString.HeaderText = "ASP.Net Code";
-            this.ControlString.Name = "ControlString";
-            this.ControlString.ReadOnly = true;
-            this.ControlString.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ControlString.ToolTipText = "Server-side control text";
-            // 
-            // CodeBehind
-            // 
-            this.CodeBehind.HeaderText = "Code Behind";
-            this.CodeBehind.Name = "CodeBehind";
-            this.CodeBehind.ReadOnly = true;
-            // 
-            // Directory
-            // 
-            this.Directory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Directory.HeaderText = "Directory";
-            this.Directory.Name = "Directory";
-            this.Directory.ReadOnly = true;
-            this.Directory.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.Directory.Width = 71;
-            // 
-            // dictionaryKey
-            // 
-            this.dictionaryKey.HeaderText = "";
-            this.dictionaryKey.Name = "dictionaryKey";
-            this.dictionaryKey.ReadOnly = true;
-            this.dictionaryKey.Visible = false;
-            // 
             // GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -380,5 +393,6 @@ namespace GUI508
         private System.Windows.Forms.DataGridViewTextBoxColumn CodeBehind;
         private System.Windows.Forms.DataGridViewTextBoxColumn Directory;
         private System.Windows.Forms.DataGridViewTextBoxColumn dictionaryKey;
+        private System.Windows.Forms.ToolStripMenuItem preferencesToolStripMenuItem;
     }
 }
