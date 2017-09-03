@@ -32,7 +32,7 @@ namespace GUI508
                 if (value.Equals(string.Empty)) 
                 {
                     aspxControlProperties.ControlMessages.Add("IMG0001");
-                    aspxControlProperties.Status = true;
+                    aspxControlProperties.ErrorStatus = true;
                 }
                 else 
                 {
@@ -63,7 +63,7 @@ namespace GUI508
                 if (value.Equals(string.Empty)) 
                 {
                     aspxControlProperties.ControlMessages.Add("IMG0001");
-                    aspxControlProperties.Status = true;
+                    aspxControlProperties.ErrorStatus = true;
                     return;
                 }
                 else 
@@ -74,6 +74,7 @@ namespace GUI508
             else 
             {
                 aspxControlProperties.ControlMessages.Add("IMG0001");
+                aspxControlProperties.ErrorStatus = true;
             }
         }
 

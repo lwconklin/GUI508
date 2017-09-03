@@ -67,6 +67,9 @@ namespace GUI508
         public void ASPXScan() 
         {
             Dictionary<Guid, Scanner.ASPXControlProperties> aspxControl = new Dictionary<Guid, Scanner.ASPXControlProperties>();
+            Scanner.aspxControls.Clear();
+            Scanner.AspxControlsSorted.Clear();
+            Scanner.AspxPages.Clear();
             foreach (string file in this.aspxFiles) 
             {
                 this.CreateFileListing(file);
@@ -247,7 +250,13 @@ namespace GUI508
             /// Gets or sets a value indicating whether the item is in error status.
             /// </summary>
             /// <value>Error Status.</value>
-            public bool Status { get; set; }
+            public bool ErrorStatus { get; set; }
+
+            /// <summary>
+            /// Gets or sets a value indicating whether the item is in has no 508 rules to validate in application.
+            /// </summary>
+            /// <value>Error Status.</value>
+            public bool NoComplainanceStatus { get; set; }
         }
 
          /// <summary>

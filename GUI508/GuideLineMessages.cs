@@ -27,7 +27,9 @@ namespace GUI508
         public GuideLineMessages()
         {
             var relPath = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location) + "\\Resources\\AccessibilityGuideLineMessages.xml";
+
             XDocument xmlDocument = XDocument.Load(relPath);
+            Messages.Clear();
             var msgs = from msg in xmlDocument.Descendants("Message")
                 select new
                 {

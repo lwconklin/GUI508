@@ -158,6 +158,8 @@ namespace GUI508
                     aspxControlProperties = kvp.Value;
                     aspxControlProperties.ControlMessages = new List<string>();
                     aspxControlProperties.ControlMessages.Add("XXX0001");
+                    aspxControlProperties.ErrorStatus = false;
+                    aspxControlProperties.NoComplainanceStatus = true;
                     aspxControls[kvp.Key] = aspxControlProperties;
                 }
             }

@@ -9,12 +9,15 @@ namespace GUI508
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
+    using System.Diagnostics;
 
     /// <summary>
     /// Controls main shell of the winform UI.
     /// </summary>
     public partial class GUI : Form 
     {
+        private Image nullImage = new Bitmap(1, 1);
+
         /// <summary>
         /// Initializes a new instance of the <see cref="GUI"/> class.
         /// </summary>
@@ -23,6 +26,12 @@ namespace GUI508
             this.InitializeComponent();
             StartUpInitialization startUp = new StartUpInitialization();
             startUp.Initalization();
+            if (Debugger.IsAttached.Equals(true))
+            {
+                Properties.Settings.Default.Upgrade();
+                Properties.Settings.Default.Save();
+            }
+            
         }
 
         /// <summary>
@@ -30,43 +39,65 @@ namespace GUI508
         /// </summary>
         public void FillGridViewControl() 
         {
-            Image nullImage = new Bitmap(1, 1);
+            if (GridViewControl.RowCount > 0)
+            {
+                GridViewControl.Rows.Clear();
+                GridViewControl.Refresh();
+            }
             foreach (KeyValuePair<string, Scanner.ASPXControlProperties> kvp in Scanner.AspxControlsSorted) 
             {
                 if (!kvp.Value.ControlType.Equals("HeaderTags"))
                 {
-                    var index = GridViewControl.Rows.Add();
-                    GridViewControl.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    GridViewControl.Rows[index].Cells["ControlType"].Value = kvp.Value.ControlType;
-                    
-                    GridViewControl.Rows[index].Cells["Line"].Value = kvp.Value.LineNumber;
-                    GridViewControl.Rows[index].Cells["ControlString"].Value = kvp.Value.AspxControl;
-                    GridViewControl.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                    GridViewControl.Columns[3].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    GridViewControl.Rows[index].Cells["CodeBehind"].Value = kvp.Value.CodeBehind;
-                    GridViewControl.Rows[index].Cells["Directory"].Value = kvp.Value.Path;
-                    GridViewControl.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-                    GridViewControl.Columns[5].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                    GridViewControl.Rows[index].Cells["DictionaryKey"].Value = kvp.Key;
-                    if ((kvp.Value.ControlMessages != null) && (kvp.Value.ControlMessages.Count > 0))
+                   if((Resources.UserPreferences.Default.DisplayErrors.Equals(true)) && (kvp.Value.ErrorStatus.Equals(true)))
                     {
-                        if (kvp.Value.ControlMessages[0].Equals("XXX0001")) 
-                        {
-                            GridViewControl.Rows[index].DefaultCellStyle.BackColor = Color.LightGray;
-                            GridViewControl.Rows[index].Cells["ASPXAlert"].Value = nullImage;
-                        }
-                        else
-                        {
-                            GridViewControl.Rows[index].DefaultCellStyle.BackColor = Color.LightYellow;
-                            GridViewControl.Rows[index].Cells["ASPXAlert"].Value = Properties.Resources.Warning24;
-                        }
-                     }
-                    else
-                    {
-                        GridViewControl.Rows[index].Cells["ASPXAlert"].Value = nullImage;
+                        var index = GridViewControlCommon(kvp);
+                        GridViewControl.Rows[index].DefaultCellStyle.BackColor = Color.LightYellow;
+                        GridViewControl.Rows[index].Cells["ASPXAlert"].Value = Properties.Resources.Warning24;
                     }
+
+                   if ((Resources.UserPreferences.Default.DisplayNoComplaince.Equals(true)) && (kvp.Value.NoComplainanceStatus.Equals(true)))
+                   {
+                       var index = GridViewControlCommon(kvp);
+                       GridViewControl.Rows[index].DefaultCellStyle.BackColor = Color.LightGray;
+                   }
+
+                   if ((Resources.UserPreferences.Default.DisplayNoErrors.Equals(true)) && (kvp.Value.ErrorStatus.Equals(false)))
+                   {
+                       var index = GridViewControlCommon(kvp);
+                   }
+                   if (Resources.UserPreferences.Default.DisplayAll.Equals(true)) 
+                   {
+                       var index = GridViewControlCommon(kvp);
+                       if (kvp.Value.ErrorStatus.Equals(true)) {
+                           GridViewControl.Rows[index].DefaultCellStyle.BackColor = Color.LightYellow;
+                           GridViewControl.Rows[index].Cells["ASPXAlert"].Value = Properties.Resources.Warning24;
+                       }
+                       if (kvp.Value.NoComplainanceStatus.Equals(true))
+                       {
+                           GridViewControl.Rows[index].DefaultCellStyle.BackColor = Color.LightGray;
+                       }
+                   }
                 }
             }
+        }
+
+        private int GridViewControlCommon(KeyValuePair<string, Scanner.ASPXControlProperties> kvp)
+        {
+            var index = GridViewControl.Rows.Add();
+            GridViewControl.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            GridViewControl.Rows[index].Cells["ControlType"].Value = kvp.Value.ControlType;
+            GridViewControl.Rows[index].Cells["Line"].Value = kvp.Value.LineNumber;
+            GridViewControl.Rows[index].Cells["ControlString"].Value = kvp.Value.AspxControl;
+            GridViewControl.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            GridViewControl.Columns[3].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            GridViewControl.Rows[index].Cells["CodeBehind"].Value = kvp.Value.CodeBehind;
+            GridViewControl.Rows[index].Cells["Directory"].Value = kvp.Value.Path;
+            GridViewControl.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            GridViewControl.Columns[5].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+            GridViewControl.Rows[index].Cells["DictionaryKey"].Value = kvp.Key;
+            GridViewControl.Rows[index].Cells["ASPXAlert"].Value = nullImage;
+            GridViewControl.Rows[index].DefaultCellStyle.BackColor = Color.White;
+            return index;
         }
 
         /// <summary>
@@ -75,22 +106,21 @@ namespace GUI508
         public void FillGridViewPage()
         {
             Image nullImage = new Bitmap(1, 1);
+            int index = 0;
             foreach (KeyValuePair<string, Scanner.ASPXPageProperties> kvp in Scanner.AspxPages)
             {
-                var index = GridViewPage.Rows.Add();
                 GridViewPage.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-                if ((kvp.Value.PageMessages != null) && (kvp.Value.PageMessages.Count > 0))
-                {
-                    GridViewPage.Rows[index].DefaultCellStyle.BackColor = Color.LightYellow;
-                    GridViewPage.Rows[index].Cells["AlertPage"].Value = Properties.Resources.Warning16;
-                }
-                else
-                {
-                    GridViewPage.Rows[index].Cells["AlertPage"].Value = nullImage;
-                }
-
+                index = GridViewPage.Rows.Add();
+                GridViewPage.Rows[index].DefaultCellStyle.BackColor = Color.LightYellow;
+                GridViewPage.Rows[index].Cells["AlertPage"].Value = Properties.Resources.Warning16;
                 GridViewPage.Rows[index].Cells["ASPXPage"].Value = kvp.Value.FileName;
                 GridViewPage.Rows[index].Cells["DirectoryPage"].Value = kvp.Value.Path;
+                GridViewPage.Rows[index].Cells["ASPXPage"].Value = kvp.Value.FileName;
+                GridViewPage.Rows[index].Cells["DirectoryPage"].Value = kvp.Value.Path;
+                //GridViewPage.Rows[index].DefaultCellStyle.BackColor = Color.LightYellow;
+                //GridViewPage.Rows[index].Cells["AlertPage"].Value = Properties.Resources.Warning16;
+                GridViewPage.Rows[index].Cells["AlertPage"].Value = nullImage;
+
             }
         }
 
@@ -142,6 +172,8 @@ namespace GUI508
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             dialog.Description = "Select the folder that you want to use.";
             dialog.ShowNewFolderButton = false;
+            dialog.RootFolder = System.Environment.SpecialFolder.MyComputer;
+
             DialogResult selectedPathDialogResult = new DialogResult();
             selectedPathDialogResult = dialog.ShowDialog();
             if (selectedPathDialogResult.Equals(DialogResult.OK))
@@ -149,7 +181,7 @@ namespace GUI508
                 mnuExport.Enabled = false;
                 GuideLineMessages messages = new GuideLineMessages(); 
                 Scanner scanner = new Scanner();
-                scanner.DirectorySearch(dialog.SelectedPath);
+                scanner.DirectorySearch(dialog.SelectedPath); 
                 scanner.ASPXScan();
                 this.FillGridViewControl();
                 this.FillGridViewPage();
@@ -284,6 +316,12 @@ namespace GUI508
         private void GridViewControl_Sorted(object sender, System.EventArgs e)
         {
 
+        }
+
+        private void preferencesToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            Preferences preferences = new Preferences();
+            preferences.Show();
         }
      } // end of class
 } // end of namespace
